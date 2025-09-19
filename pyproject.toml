@@ -11,7 +11,9 @@ dependencies = [
     "pyserial (>=3.5,<4.0)",
     "numpy (>=2.3.2,<3.0.0)",
     "pandas (>=2.3.2,<3.0.0)",
-    "matplotlib (>=3.10.6,<4.0.0)"
+    "matplotlib (>=3.10.6,<4.0.0)",
+    "ipython (>=9.5.0,<10.0.0)",
+    "ipykernel (>=6.30.1,<7.0.0)"
 ]
 
 [tool.poetry]
