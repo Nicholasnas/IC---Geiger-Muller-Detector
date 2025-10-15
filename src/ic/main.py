@@ -6,7 +6,7 @@ import time
 
 class GeigerCounter:
     
-    def __init__(self, arquivo:str = 'date_0cm.csv'):
+    def __init__(self, arquivo:str = 'src/ic/dates/teste.csv'):
         self.port_serial = "/dev/ttyACM0" 
         self.conn_vel = 9600            
         self.file = arquivo
