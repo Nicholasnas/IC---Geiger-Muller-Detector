@@ -6,7 +6,7 @@ import time
 
 class GeigerCounter:
     
-    def __init__(self, arquivo:str = 'src/ic/dates/teste/.csv'):
+    def __init__(self, arquivo:str = 'src/ic/dates/05_10_back_cm.csv'):
         self.port_serial = "/dev/ttyACM0" 
         self.conn_vel = 9600            
         self.file = arquivo
@@ -26,7 +26,7 @@ class GeigerCounter:
     def reading_conn_serial(self):
                 
         with open(self.file, "a", encoding="utf-8") as file:
-            file.write("timestamp,CPS,CPM,uSv/h,mR/h\n")  
+            file.write("timestamp,CPS\n")  
 
             try:
                 while True:
@@ -35,20 +35,21 @@ class GeigerCounter:
                     
                     dados = linha.split(',')
                     cps = dados[0]
-                    cpm = dados[1]
-                    uSv = dados[2]
-                    mREM = dados[3]
+                    # cpm = dados[1]
+                    # uSv = dados[2]
+                    # mREM = dados[3]
                     
                     agora = datetime.now().strftime(r"%Y-%m-%d %H:%M:%S")
 
                     # Motando os dados no formato csv
-                    dados_csv = f"{agora},{cps},{cpm},{uSv},{mREM}\n"
+                    # dados_csv = f"{agora},{cps},{cpm},{uSv},{mREM}\n"
+                    dados_csv = f"{agora},{cps}\n"
 
                     # Salva no arquivo e forca a escrita no disco.      
                     file.write(dados_csv)
                     file.flush()  
                     
-                    print(f"Timestamp: {agora}, CPS: {cps}, CPM: {cpm}, uSv/h: {uSv}, mR/h: {mREM}")
+                    # print(f"Timestamp: {agora}, CPS: {cps}, CPM: {cpm}, uSv/h: {uSv}, mR/h: {mREM}")
                     
             except KeyboardInterrupt:
                 print("Coleta de dados encerrada pelo usuario") # ctrl + c

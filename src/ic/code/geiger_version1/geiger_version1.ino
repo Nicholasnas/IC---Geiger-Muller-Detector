@@ -13,10 +13,10 @@ void setup() {
 
 void loop() {
   unsigned long pulsos_anteriores = contador_pulsos;
-  delay(1000);
+  delay(10000); // 10 segundos
 
   unsigned long pulsos_novos = contador_pulsos - pulsos_anteriores;
 
-  Serial.print("Pulsos nos últimos 1 segundos: ");
-  Serial.println(pulsos_novos);
+  Serial.print(pulsos_novos);
+  Serial.println(",");
 }
