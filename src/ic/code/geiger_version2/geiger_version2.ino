@@ -1,5 +1,3 @@
-#include <Arduino.h>
-
 
 
 int pino_geiger = 2;
@@ -13,6 +11,7 @@ void contar_pulsos() {
 }
 
 void setup() {
+  
   Serial.begin(9600);
 
   pinMode(pino_geiger, INPUT);
